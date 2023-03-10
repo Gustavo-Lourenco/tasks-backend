@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven "M2_HOME"
+        maven "MAVEN_LOCAL"
     } 
     stages {
         stage ('Build Backend') {
