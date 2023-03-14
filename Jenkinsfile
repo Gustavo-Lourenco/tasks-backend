@@ -33,14 +33,23 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }*/
+        }}*/
 
-        stage ('Deply Backend') {
+        stage ('Deploy Backend') {
             steps {
                 deploy adapters: [tomcat8(credentialsId: 'TomcatLogin', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
-                }
+            }
         }
-    }
+
+        stage ('API Test') {
+            steps {
+                git credentialsId: 'GLourenco', url: 'https://github.com/Gustavo-Lourenco/tasks-api-test'
+                bat 'mvn test'
+            }
+        }
+    
+
+
 }
 
 
