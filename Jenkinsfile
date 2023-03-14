@@ -62,6 +62,15 @@ pipeline {
             }
         }
 
+        stage ('Functional Test') {
+            steps {
+                dir('functional-test') {
+                    git credentialsId: 'GLourenco', url: 'https://github.com/Gustavo-Lourenco/tasks-functional-tests'
+                    bat 'mvn test'
+                }
+            }
+        }
+
     }
 }
 
