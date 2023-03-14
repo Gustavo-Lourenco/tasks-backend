@@ -47,11 +47,10 @@ pipeline {
                 dir('api-test') {
                     git credentialsId: 'GLourenco', url: 'https://github.com/Gustavo-Lourenco/tasks-api-test'
                     bat 'mvn test'
+                }
             }
         }
     }
-
-
 }
 
 
