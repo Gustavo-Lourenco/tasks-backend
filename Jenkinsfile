@@ -33,7 +33,8 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }}*/
+        }
+        */
 
         stage ('Deploy Backend') {
             steps {
@@ -47,7 +48,7 @@ pipeline {
                 bat 'mvn test'
             }
         }
-    
+    }
 
 
 }
